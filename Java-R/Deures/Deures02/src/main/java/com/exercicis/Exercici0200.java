@@ -2,7 +2,6 @@ package com.exercicis;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class Exercici0200 {
@@ -64,15 +63,27 @@ public class Exercici0200 {
      * @param String el segon número imaginari
      * @return String el resultat de la suma
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddImaginariesSimple
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddImaginariesNegative
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddImaginariesZero
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddImaginariesWithZeroRealPart
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddImaginariesWithZeroImaginaryPart
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddImaginariesLargeNumbers
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddImaginariesSimple
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddImaginariesNegative
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddImaginariesZero
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddImaginariesWithZeroRealPart
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddImaginariesWithZeroImaginaryPart
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddImaginariesLargeNumbers
      */
     public static String addImaginaries(String num0, String num1) {
-        return "";
+        String[] parts0 = num0.split("\\+|i");
+        String[] parts1 = num1.split("\\+|i");
+
+        int real0 = Integer.parseInt(parts0[0]);
+        int imag0 = Integer.parseInt(parts0[1]);
+        int real1 = Integer.parseInt(parts1[0]);
+        int imag1 = Integer.parseInt(parts1[1]);
+
+        int realSum = real0+real1;
+        int imagSum = imag0+imag1;
+
+        return realSum + "+" + imagSum + "i";
+
     }
 
     /**
@@ -80,11 +91,11 @@ public class Exercici0200 {
      * 
      * @param int nivells del triangle (0 fins a n)
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testDrawPascalZero
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testDrawPascalOne
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testDrawPascalTwo
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testDrawPascalThree
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testDrawPascalFive
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testDrawPascalZero
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testDrawPascalOne
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testDrawPascalTwo
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testDrawPascalThree
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testDrawPascalFive
      */
     public static void drawPascal(int n) {
 
@@ -96,15 +107,19 @@ public class Exercici0200 {
      * @param llista de valors
      * @return resultat de la suma
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddListEmpty
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddListSingleElement
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddListMultipleElements
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddListNegativeNumbers
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddListMixedNumbers
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testAddListDecimals
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddListEmpty
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddListSingleElement
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddListMultipleElements
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddListNegativeNumbers
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddListMixedNumbers
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testAddListDecimals
      */
     public static double addList(ArrayList<Double> list) {
-        return 0.0;
+        Double sumatotal = 0.0;
+        for (int i = 0; i< list.size(); i++){
+            sumatotal += list.get(i);
+        }
+        return sumatotal;
     }
 
     /** 
@@ -113,15 +128,23 @@ public class Exercici0200 {
      * 
      * @param int[][] matriu a dibuixar
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testPrintMatrixSingleElement
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testPrintMatrixRow
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testPrintMatrixColumn
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testPrintMatrixSquare
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testPrintMatrixRectangular
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testPrintMatrixEmpty
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testPrintMatrixSingleElement
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testPrintMatrixRow
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testPrintMatrixColumn
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testPrintMatrixSquare
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testPrintMatrixRectangular
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testPrintMatrixEmpty
      */
     public static void printMatrix(int[][] matrix) {
-
+        for (int i = 0; i < matrix.length; i++){
+            for (int j = 0; j < matrix[i].length; j++){
+                if (j != (matrix[i].length)-1){
+                    System.out.print(matrix[i][j] + ", ");
+                }else{
+                    System.out.println(matrix[i][j]);
+                }
+            }
+        }
     }
 
     /**
@@ -147,13 +170,32 @@ public class Exercici0200 {
      * @param int[][] matriu a transposar
      * @return int[][] matriu transposada
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testTransposeSquareMatrix
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testTransposeRectangularMatrix
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testTransposeColumnMatrix
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testTransposeSingleElement
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testTransposeSquareMatrix
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testTransposeRectangularMatrix
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testTransposeColumnMatrix
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testTransposeSingleElement
      */
     public static int[][] transpose(int[][] matrix) {
-        return null;
+        int filas = matrix.length;
+        int columnas = matrix[0].length;
+
+        int[][] trasposada = new int[filas][columnas];
+
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                trasposada[j][i] = matrix[i][j]; 
+            }
+        }
+
+        System.out.println("Matriu Trasposada: ");
+        for (int i = 0; i < columnas; i++) {
+            for (int j = 0; j < filas; j++) {
+                System.out.print(trasposada[i][j] + ", ");
+            }
+            System.out.println();
+        }
+
+        return trasposada;
     }
 
     /**
@@ -172,12 +214,26 @@ public class Exercici0200 {
      * @param String cadena de text
      * @return char primer caràcter que no es repeteix
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testFirstNonRepeatedBasic
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testFirstNonRepeatedAllRepeated
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testFirstNonRepeatedLongString
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testFirstNonRepeatedBasic
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testFirstNonRepeatedAllRepeated
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testFirstNonRepeatedLongString
      */
     public static char firstNonRepeated(String str) {
-        return '_';
+        boolean repetit = true;
+        char lletraReturn = 'a';
+        for (int i = 0; i < str.length(); i++){
+            String lletra = str.substring(i, i+1);
+            String strSubstring = str.substring(i+1);
+            if (!(strSubstring.contains(lletra))){
+                lletraReturn = lletra.charAt(i);
+                repetit = false;
+                break;
+            }
+        }
+        if(repetit == true){
+            System.out.println("Totes les lletres es repeteixen");
+        }
+        return lletraReturn;
     }
 
     /**
@@ -187,12 +243,18 @@ public class Exercici0200 {
      * @param int número a invertir
      * @return int número resultant
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testInverIntPositive
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testInverIntWithZeros
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testInverIntSingleDigit
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testInverIntPositive
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testInverIntWithZeros
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testInverIntSingleDigit
      */
     public static int inverInt(int num) {
-        return 0;
+        String reves = "";
+        String numString = Integer.toString(num);
+        for (int i = numString.length()-1; i >= 0; i--){
+            reves += numString.substring(i, i+1);
+        }
+        int nombre = Integer.parseInt(reves);
+        return nombre;
     }
 
     /**
@@ -212,12 +274,31 @@ public class Exercici0200 {
      * @param ArrayList<Integer> nums Llista de números d'entrada (exactament 5 números)
      * @return ArrayList<Integer> Llista amb els dos números de sortida [mínim, màxim]
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testMinMaxAddBasic
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testMinMaxAddWithNegatives
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testMinMaxAddWithDuplicates
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testMinMaxAddBasic
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testMinMaxAddWithNegatives
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testMinMaxAddWithDuplicates
      */
     public static ArrayList<Integer> minMaxAdd(ArrayList<Integer> nums) {
-        return null;
+        int number = 0;
+        int final_number = 0;
+
+        nums.sort((a,b) -> a.compareTo(b));
+
+        System.out.println(nums);
+
+        for (int i = 0; i < nums.size() - 1; i++) {
+            number = number + nums.get(i); // petits
+        }
+
+        nums.sort((a,b) -> b.compareTo(a));
+
+        System.out.println(nums);
+
+        for (int i = 0; i < nums.size() - 1; i++) {
+            final_number = final_number + nums.get(i);
+        }
+
+        return new ArrayList<>(Arrays.asList(number, final_number));
     }
 
     /**
@@ -236,14 +317,21 @@ public class Exercici0200 {
      * @param int b Segon número a sumar
      * @return int Resultat de la suma de a i b sense utilitzar l'operació de suma
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testSumaSenseSumarPositiveNumbers
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testSumaSenseSumarNegativeNumbers
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testSumaSenseSumarPositiveAndNegative
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testSumaSenseSumarZero
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testSumaSenseSumarLargeNumbers
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testSumaSenseSumarPositiveNumbers
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testSumaSenseSumarNegativeNumbers
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testSumaSenseSumarPositiveAndNegative
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testSumaSenseSumarZero
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testSumaSenseSumarLargeNumbers
      */
     public static int sumaSenseSumar(int a, int b) {
-        return 0;
+        String al = "x".repeat(a);
+        String bl = "c".repeat(b);
+
+        
+        int rst = (al.concat(bl)).length();
+
+
+        return rst;
     }
 
     /**
@@ -262,12 +350,44 @@ public class Exercici0200 {
      * @param char target Caràcter objectiu
      * @return ArrayList<Integer> Llista de distàncies mínimes de cada lletra fins al caràcter objectiu
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testMinDistancesBasic
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testMinDistancesMultipleTargets
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testMinDistancesNoTargetFound
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testMinDistancesBasic
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testMinDistancesMultipleTargets
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testMinDistancesNoTargetFound
      */
     public static ArrayList<Integer> minDistances(String text, char target) {
-        return null;
+        ArrayList<Integer> rst = new ArrayList<>();
+        int llargada = text.length();
+
+        int[] distancia = new int[llargada];
+        for (int i = 0; i<llargada; i++){
+            distancia[i] = Integer.MAX_VALUE;
+        }
+
+        //de izq a derecha
+        int ultimaPos = -1;
+        for (int i = 0; i < llargada; i++){
+            if (text.charAt(i)== target){
+                ultimaPos = i;
+            }
+            if (ultimaPos != -1){
+                distancia[i] = i- ultimaPos;
+            }
+        }
+
+        //de derecha a izq
+        ultimaPos = -1;
+        for (int i = llargada -1; i >= 0; i--){
+            if (text.charAt(i) == target){
+                ultimaPos = i;
+            }
+            if (ultimaPos != -1){
+                distancia[i] = Math.min(distancia[i],ultimaPos-i);
+            }
+        }
+        for (int dist : distancia){
+            rst.add(dist);
+        }
+        return rst;
     }
 
     /**
@@ -286,11 +406,21 @@ public class Exercici0200 {
      * @param ArrayList<Double> nums Llista de números d'entrada
      * @return Double Número que no es repeteix
      * 
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testFindUniqueNumberBasic
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testFindUniqueNumberMultiplePairs
-     * @test ./runTest.sh com.exercicis.TestExercici0000#testFindUniqueNumberNoUnique
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testFindUniqueNumberBasic
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testFindUniqueNumberMultiplePairs
+     * @test ./runTest.sh com.exercicis.TestExercici0200#testFindUniqueNumberNoUnique
      */
     public static Double findUniqueNumber(ArrayList<Double> nums) {
-        return null;
+        Double numero = 0.0;
+        int suma = 0;
+        for (int i = 0; i<nums.size();i++){
+            numero = nums.get(i);
+            for (int j = 0; j<nums.size();j++){
+                if (numero == nums.get(j)){
+                    suma = suma+1;
+                }
+            }
+        }
+        return 0.0;
     }
 }
