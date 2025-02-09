@@ -98,8 +98,23 @@ public class Exercici0200 {
      * @test ./runTest.sh com.exercicis.TestExercici0200#testDrawPascalFive
      */
     public static void drawPascal(int n) {
-
+        int[][] pascal = new int[n][];
+        
+        for (int i = 0; i < n; i++) {
+            pascal[i] = new int[i + 1];
+            for (int j = 0; j <= i; j++) {
+                if (j == 0 || j == i) {
+                    pascal[i][j] = 1;
+                } else {
+                    pascal[i][j] = pascal[i - 1][j - 1] + pascal[i - 1][j];
+                }
+                System.out.print(pascal[i][j] + " ");
+            }
+            System.out.println();
+        }
     }
+    
+    
 
     /**
      * Fes una funció que sumi els valors d'un ArrayList<double>
